@@ -2,11 +2,29 @@ $( document ).ready(onReady);
 
 function onReady(){
     console.log('in JQ');
-    $('#submitButton').on('click', informationIn)
+    $('#submitButton').on('click', informationIn);
 }//end onReady
 
+//globals
+let employees = [];
+//end globals
+
 function informationIn() {
-    console.log('button worked!')
+    console.log('button worked!');
+    let firstName = $('#firstNameIn').val();
+    let lastName = $('#lastNameIn').val();
+    let idNum = $('#idIn').val();
+    let jobTitle = $('#jobTitleIn').val();
+    let annualSalary = $('#annualSalaryIn').val();
+    
+    let employeeInfo = {
+        name: firstName +' '+ lastName,
+        ID: idNum,
+        job: jobTitle,
+        salary: annualSalary
+    };
+    employees.push(employeeInfo);
+    console.log(employees)
 }
 
 // A 'Submit' button should collect the form information,

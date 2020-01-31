@@ -7,7 +7,16 @@ function onReady(){
 
 //globals
 let employees = [];
+let annualCosts = 0;
+let monthlyCosts = annualCosts/12;
+
 //end globals
+function calculateCosts() {
+    //loop thru employees array
+    //sum annual salaries
+    //append monthly costs to DOM
+    //if monthly>20,000, change background to red
+}//end calculateCosts
 
 function informationIn() {
     console.log('button worked!');
@@ -23,12 +32,17 @@ function informationIn() {
         job: jobTitle,
         salary: annualSalary
     };
-    employees.push(employeeInfo);
-    console.log(employees)
-}
+    $('#firstNameIn').val('');
+    $('#lastNameIn').val('');
+    $('#idIn').val('');
+    $('#jobTitleIn').val('');
+    $('#annualSalaryIn').val('');
 
-// A 'Submit' button should collect the form information,
+    employees.push(employeeInfo);
+    calculateCosts();
+}//end informationIn
+
 //  store the information to calculate monthly costs, 
-//  append information to the DOM and clear the input fields. 
+//  append employee information to the DOM 
 //  Using the stored information, calculate monthly costs and append this to the to DOM. 
 //  If the total monthly cost exceeds $20,000, add a red background color to the total monthly cost.

@@ -17,7 +17,10 @@ function calculateCosts(salaryIn) {
         //append monthly costs to DOM
     let monthlyCosts = annualCosts/12;
     $('#totalMonthly').text(`Total Monthly: ${monthlyCosts}`)
-    //if monthly>20,000, change background to red
+        //if monthly>20,000, change background to red        
+    if(monthlyCosts > 20000){
+        $('body').addClass('costAlerter')
+    }//end if
 }//end calculateCosts
 
 function informationIn() {

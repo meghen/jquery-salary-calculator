@@ -1,3 +1,6 @@
-.costAlerter {
+.costAlerter{
     background-color: red;
+}
+#totalMonthly{
+    text-align: right;
 }

@@ -25,12 +25,12 @@ function calculateCosts(salaryIn) {
 }//end calculateCosts
 
 function deleteEmployee() {
-    console.log('in deleteEmployee');
-    
-}
+    let el = $(this);
+    let string = el.parent();
+    string.remove();
+}//end deleteEmployee
 
 function informationIn() {
-    console.log('button worked!');
     let firstName = $('#firstNameIn').val();
     let lastName = $('#lastNameIn').val();
     let idNum = $('#idIn').val();

@@ -8,13 +8,15 @@ function onReady(){
 //globals
 let employees = [];
 let annualCosts = 0;
-let monthlyCosts = annualCosts/12;
 
 //end globals
-function calculateCosts() {
-    //loop thru employees array
+function calculateCosts(salaryIn) {    
     //sum annual salaries
-    //append monthly costs to DOM
+    /// - WHY IS EMPLOYEES.SALARY READING AS A STRING?
+    annualCosts = annualCosts + Number(salaryIn)
+        //append monthly costs to DOM
+    let monthlyCosts = annualCosts/12;
+    $('#totalMonthly').text(`Total Monthly: ${monthlyCosts}`)
     //if monthly>20,000, change background to red
 }//end calculateCosts
 
@@ -39,7 +41,7 @@ function informationIn() {
     $('#annualSalaryIn').val('');
 
     employees.push(employeeInfo);
-    calculateCosts();
+    calculateCosts(employeeInfo.salary);
 }//end informationIn
 
 //  store the information to calculate monthly costs, 

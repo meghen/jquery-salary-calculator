@@ -28,6 +28,7 @@ function deleteEmployee() {
     let el = $(this);
     let string = el.parent();
     string.remove();
+    // annualCosts = annualCosts - 
 }//end deleteEmployee
 
 function informationIn() {
@@ -49,11 +50,11 @@ function informationIn() {
     $('#jobTitleIn').val('');
     $('#annualSalaryIn').val('');
 
-    $('#employeesList').append('<li>'+firstName + ' ' + lastName + ' ' + idNum + ' ' + jobTitle + ' ' + annualSalary + ' <button class="deleteButton">Delete</button></li>')
+    $('#employeeTable').append(`<tr><td>${firstName}</td><td>${lastName}</td><td>${idNum}</td><td>${jobTitle}</td><td>${annualSalary}</td><td><button class="deleteButton">Delete</button></td></tr>`);
+
     employees.push(employeeInfo);
     calculateCosts(employeeInfo.salary);
 }//end informationIn
 
 
-//Create a delete button that removes an employee from the DOM. 
 //For Base mode, it does **not** need to remove that Employee's salary from the reported total.

@@ -59,6 +59,12 @@ function informationIn() {
         let string = el.parent();
         let grandparent = string.parent()[0];
         grandparent.remove();
+        //remove them from the array
+        for (let i = 0; i < employees.length; i++) {
+            if (employees[i].ID === idNum) {
+                employees.splice(i,1);
+            };//end if            
+        };//end for
         //call calculateCosts fx inputting annualSalary(-1) run annualSalary as neg because adding a neg and subtracting a pos are the same
         //ALSO be sure not to confuse an individuals annualSalary with the globally declared, company's annualCosts
        calculateCosts(annualSalary*(-1));

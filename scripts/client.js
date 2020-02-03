@@ -3,7 +3,6 @@ $( document ).ready(onReady);
 function onReady(){
     console.log('in JQ');
     $('#submitButton').on('click', informationIn);
-    $('#employeesList').on('click', '.deleteButton', deleteEmployee);
 }//end onReady
 
 //globals
@@ -24,12 +23,7 @@ function calculateCosts(salaryIn) {
     }//end if
 }//end calculateCosts
 
-function deleteEmployee() {
-    let el = $(this);
-    let string = el.parent();
-    string.remove();
-    // annualCosts = annualCosts - 
-}//end deleteEmployee
+
 
 function informationIn() {
     let firstName = $('#firstNameIn').val();
@@ -50,10 +44,20 @@ function informationIn() {
     $('#jobTitleIn').val('');
     $('#annualSalaryIn').val('');
 
-    $('#employeeTable').append(`<tr><td>${firstName}</td><td>${lastName}</td><td>${idNum}</td><td>${jobTitle}</td><td>${annualSalary}</td><td><button class="deleteButton">Delete</button></td></tr>`);
+    $('#employeeTable').append(`<tr><td>${firstName}</td><td>${lastName}</td><td>${idNum}</td><td>${jobTitle}</td><td>${annualSalary}</td><td><button id="${idNum}">Delete</button></td></tr>`);
 
     employees.push(employeeInfo);
     calculateCosts(employeeInfo.salary);
+    $('#employeeTable').on('click', `#${idNum}`, deleteEmployee);
+
+    function deleteEmployee() {
+        let el = $(this);
+        let string = el.parent();
+        let grandparent = string.parent()[0];
+        grandparent.remove();
+    
+       calculateCosts(annualSalary*(-1));
+    }//end deleteEmployee
 }//end informationIn
 
 
